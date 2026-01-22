@@ -1,3 +1,5 @@
 <Solution>
   <Project Path="AnonimizerZetoArchive/AnonimizerZetoArchive.csproj" />
+  <Project Path="BuisnessLogic/BuisnessLogic.csproj" Id="7b3e61dd-4252-4e04-bea7-7813fbfcbce7" />
+  <Project Path="DataLayer/DataLayer.csproj" Id="c4ca980e-f5bc-4715-9cb9-d871bc78dc10" />
 </Solution>

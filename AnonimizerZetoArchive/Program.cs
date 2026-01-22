@@ -82,6 +82,7 @@ namespace AnonimizerZetoArchive
 
             configFile.Save(ConfigurationSaveMode.Full);
             ConfigurationManager.RefreshSection("configuration");
+            
             //Local tests
             Console.WriteLine(config.ToString());
             Console.WriteLine(ConfigurationManager.AppSettings);
@@ -195,7 +196,12 @@ namespace AnonimizerZetoArchive
 
                     if (conatains.HasValue && conatains.Value)
                     {
-                        CasheQueueSize = Convert.ToInt16(ConfigurationManager.AppSettings[nameof(CasheQueueSize)]);
+                        short size = Convert.ToInt16(ConfigurationManager.AppSettings[nameof(CasheQueueSize)]?.ToString().Split(",")[0]);
+
+                        if (size <= 0) throw new ArgumentOutOfRangeException("CasheQueueSize must be greater than 0");
+
+                        CasheQueueSize = size;
+
                     } else
                     {
                         CasheQueueSize = CasheQueueSizeGlobal;
